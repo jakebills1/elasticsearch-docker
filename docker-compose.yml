@@ -5,7 +5,7 @@ services:
     ports:
       - '5601:5601'
     restart: always
-    image: docker.elastic.co/kibana/kibana-oss:7.10.2
+    image: docker.elastic.co/kibana/kibana:7.17.3
   elasticsearch:
     network_mode: elastic
     container_name: elasticsearch
@@ -16,7 +16,7 @@ services:
       - cluster.name=elasticsearch-rails
       - cluster.routing.allocation.disk.threshold_enabled=false
     restart: always
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.3
 networks:
   default:
     external: true
