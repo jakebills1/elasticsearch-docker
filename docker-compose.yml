@@ -1,0 +1,23 @@
+version: '3.9'
+services: 
+  kibana:
+    network_mode: elastic
+    ports:
+      - '5601:5601'
+    restart: always
+    image: docker.elastic.co/kibana/kibana-oss:7.10.2
+  elasticsearch:
+    network_mode: elastic
+    container_name: elasticsearch
+    ports:
+      - '9200:9200'
+    environment:
+      - discovery.type=single-node
+      - cluster.name=elasticsearch-rails
+      - cluster.routing.allocation.disk.threshold_enabled=false
+    restart: always
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
+networks:
+  default:
+    external: true
+    name: elastic
