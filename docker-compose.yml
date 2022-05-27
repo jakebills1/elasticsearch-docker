@@ -15,6 +15,7 @@ services:
       - discovery.type=single-node
       - cluster.name=elasticsearch-rails
       - cluster.routing.allocation.disk.threshold_enabled=false
+      - xpack.security.enabled=false
     restart: always
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.3
 networks:
