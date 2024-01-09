@@ -6,6 +6,7 @@ services:
       - '5601:5601'
     restart: always
     image: docker.elastic.co/kibana/kibana:7.17.3
+    mem_limit: 1g
   elasticsearch:
     network_mode: elastic
     container_name: elasticsearch
@@ -18,6 +19,7 @@ services:
       - xpack.security.enabled=false
     restart: always
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.3
+    mem_limit: 2g
 networks:
   default:
     external: true
